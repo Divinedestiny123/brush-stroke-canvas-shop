@@ -1,41 +1,41 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "light" | "dark" | "ink" | "parchment" | "cherry";
-
-type ThemeProviderProps = {
-  children: React.ReactNode;
-  defaultTheme?: Theme;
-  storageKey?: string;
+// Define types for TypeScript compatibility but write in a more JSX-like style
+const ThemeTypes = {
+  LIGHT: "light",
+  DARK: "dark", 
+  INK: "ink",
+  PARCHMENT: "parchment",
+  CHERRY: "cherry"
 };
 
-type ThemeProviderState = {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
-};
-
-const initialState: ThemeProviderState = {
-  theme: "light",
-  setTheme: () => null,
-};
-
-const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+const ThemeProviderContext = createContext({
+  theme: ThemeTypes.LIGHT,
+  setTheme: (theme) => {},
+});
 
 export function ThemeProvider({
   children,
-  defaultTheme = "light",
+  defaultTheme = ThemeTypes.LIGHT,
   storageKey = "calligraphy-theme",
   ...props
-}: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
+}) {
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem(storageKey) || defaultTheme
   );
 
   useEffect(() => {
     const root = window.document.documentElement;
     
     // Remove all theme classes
-    root.classList.remove("light", "dark", "ink", "parchment", "cherry");
+    root.classList.remove(
+      ThemeTypes.LIGHT, 
+      ThemeTypes.DARK, 
+      ThemeTypes.INK, 
+      ThemeTypes.PARCHMENT, 
+      ThemeTypes.CHERRY
+    );
     
     // Add the current theme class
     root.classList.add(theme);

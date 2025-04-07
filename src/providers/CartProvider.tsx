@@ -1,29 +1,12 @@
 
-import { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export type CartItem = {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  quantity: number;
-};
+// Define the CartContext
+const CartContext = createContext(undefined);
 
-type CartContextType = {
-  items: CartItem[];
-  addItem: (item: Omit<CartItem, "quantity">) => void;
-  removeItem: (id: string) => void;
-  updateQuantity: (id: string, quantity: number) => void;
-  clearCart: () => void;
-  itemCount: number;
-  subtotal: number;
-};
-
-const CartContext = createContext<CartContextType | undefined>(undefined);
-
-export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
+export function CartProvider({ children }) {
+  const [items, setItems] = useState([]);
   
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -42,7 +25,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("calligraphy-cart", JSON.stringify(items));
   }, [items]);
 
-  const addItem = (newItem: Omit<CartItem, "quantity">) => {
+  const addItem = (newItem) => {
     setItems((prevItems) => {
       // Check if item already exists
       const existingItem = prevItems.find((item) => item.id === newItem.id);
@@ -63,7 +46,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     });
   };
 
-  const removeItem = (id: string) => {
+  const removeItem = (id) => {
     const itemToRemove = items.find(item => item.id === id);
     if (itemToRemove) {
       setItems((prevItems) => prevItems.filter((item) => item.id !== id));
@@ -71,7 +54,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const updateQuantity = (id: string, quantity: number) => {
+  const updateQuantity = (id, quantity) => {
     if (quantity < 1) {
       removeItem(id);
       return;
