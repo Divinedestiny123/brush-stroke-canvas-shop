@@ -1,5 +1,6 @@
 
-@import url('./App.css');
+/* Import all styles from our new structure */
+@import url('./styles/index.css');
 
 /* Base styles */
 * {
