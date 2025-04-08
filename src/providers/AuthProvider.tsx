@@ -1,14 +1,29 @@
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 
-// Create the authentication context
-const AuthContext = createContext(undefined);
+type User = {
+  id: string;
+  email: string;
+  name: string;
+  avatar?: string;
+};
+
+type AuthContextType = {
+  user: User | null;
+  isLoading: boolean;
+  login: (email: string, password: string) => Promise<void>;
+  register: (name: string, email: string, password: string) => Promise<void>;
+  logout: () => void;
+  updateProfile: (data: Partial<User>) => void;
+};
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Mock authentication for demo purposes
 // In a real app, this would connect to a backend service
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -36,7 +51,7 @@ export function AuthProvider({ children }) {
     }
   }, [user]);
 
-  const login = async (email, password) => {
+  const login = async (email: string, password: string) => {
     try {
       setIsLoading(true);
       // Mock login - in a real app, this would call an API
@@ -56,14 +71,14 @@ export function AuthProvider({ children }) {
       
       toast.success("Login successful");
     } catch (error) {
-      toast.error("Login failed: " + error.message);
+      toast.error("Login failed: " + (error as Error).message);
       throw error;
     } finally {
       setIsLoading(false);
     }
   };
 
-  const register = async (name, email, password) => {
+  const register = async (name: string, email: string, password: string) => {
     try {
       setIsLoading(true);
       // Mock registration - in a real app, this would call an API
@@ -83,7 +98,7 @@ export function AuthProvider({ children }) {
       
       toast.success("Registration successful");
     } catch (error) {
-      toast.error("Registration failed: " + error.message);
+      toast.error("Registration failed: " + (error as Error).message);
       throw error;
     } finally {
       setIsLoading(false);
@@ -95,7 +110,7 @@ export function AuthProvider({ children }) {
     toast.success("Logged out successfully");
   };
 
-  const updateProfile = (data) => {
+  const updateProfile = (data: Partial<User>) => {
     if (!user) return;
     setUser(prev => prev ? { ...prev, ...data } : null);
     toast.success("Profile updated successfully");

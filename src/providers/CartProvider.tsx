@@ -1,12 +1,29 @@
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 
-// Define the CartContext
-const CartContext = createContext(undefined);
+export type CartItem = {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  quantity: number;
+};
 
-export function CartProvider({ children }) {
-  const [items, setItems] = useState([]);
+type CartContextType = {
+  items: CartItem[];
+  addItem: (item: Omit<CartItem, "quantity">) => void;
+  removeItem: (id: string) => void;
+  updateQuantity: (id: string, quantity: number) => void;
+  clearCart: () => void;
+  itemCount: number;
+  subtotal: number;
+};
+
+const CartContext = createContext<CartContextType | undefined>(undefined);
+
+export function CartProvider({ children }: { children: React.ReactNode }) {
+  const [items, setItems] = useState<CartItem[]>([]);
   
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -25,7 +42,7 @@ export function CartProvider({ children }) {
     localStorage.setItem("calligraphy-cart", JSON.stringify(items));
   }, [items]);
 
-  const addItem = (newItem) => {
+  const addItem = (newItem: Omit<CartItem, "quantity">) => {
     setItems((prevItems) => {
       // Check if item already exists
       const existingItem = prevItems.find((item) => item.id === newItem.id);
@@ -46,7 +63,7 @@ export function CartProvider({ children }) {
     });
   };
 
-  const removeItem = (id) => {
+  const removeItem = (id: string) => {
     const itemToRemove = items.find(item => item.id === id);
     if (itemToRemove) {
       setItems((prevItems) => prevItems.filter((item) => item.id !== id));
@@ -54,7 +71,7 @@ export function CartProvider({ children }) {
     }
   };
 
-  const updateQuantity = (id, quantity) => {
+  const updateQuantity = (id: string, quantity: number) => {
     if (quantity < 1) {
       removeItem(id);
       return;
