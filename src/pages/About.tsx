@@ -2,6 +2,10 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Map, Users, Award, Clock, MapPin, Mail, Phone } from "lucide-react";
+import workShop from '../assets/workshop.jpeg';
+import me from '../assets/divine.jpg';
+import calligraph1 from '../assets/calligrapher1.jpeg';
+import calligraph2 from '../assets/calligrapher2.jpeg';
 
 export default function About() {
   return (
@@ -48,7 +52,7 @@ export default function About() {
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent blur-xl opacity-30 rounded-lg"></div>
               <img
-                src="/images/workshop.jpg"
+                src={workShop}
                 alt="Calligraphy workshop"
                 className="rounded-lg relative z-10"
               />
@@ -114,23 +118,23 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-card rounded-lg overflow-hidden shadow-sm border">
               <img
-                src="/images/team1.jpg"
-                alt="Sarah Chen"
+                src={me}
+                alt="Divine"
                 className="w-full h-64 object-cover"
               />
               <div className="p-4">
-                <h3 className="font-semibold text-xl">Sarah Chen</h3>
+                <h3 className="font-semibold text-xl">Divine-Destiny</h3>
                 <p className="text-primary mb-2">Founder & Master Calligrapher</p>
                 <p className="text-muted-foreground text-sm">
                   With over 15 years of experience in traditional East Asian calligraphy, 
-                  Sarah brings both expertise and passion to the BrushStroke community.
+                  Divine brings both expertise and passion to the BrushStroke community.
                 </p>
               </div>
             </div>
             
             <div className="bg-card rounded-lg overflow-hidden shadow-sm border">
               <img
-                src="/images/team2.jpg"
+                src={calligraph1}
                 alt="Marcus Johnson"
                 className="w-full h-64 object-cover"
               />
@@ -146,7 +150,7 @@ export default function About() {
             
             <div className="bg-card rounded-lg overflow-hidden shadow-sm border">
               <img
-                src="/images/team3.jpg"
+                src={calligraph2}
                 alt="Leila Patel"
                 className="w-full h-64 object-cover"
               />
@@ -181,8 +185,8 @@ export default function About() {
                   <div>
                     <p className="font-medium">BrushStroke Studio</p>
                     <p className="text-muted-foreground">
-                      123 Artisan Way<br />
-                      Portland, OR 97204
+                      21 Murtala Mohammed Highway<br />
+                      calabar.
                     </p>
                   </div>
                 </div>
@@ -194,7 +198,7 @@ export default function About() {
                 
                 <div className="flex items-center gap-2">
                   <Phone className="h-5 w-5 text-primary" />
-                  <p>(503) 555-1234</p>
+                  <p>+234 814 513 6317</p>
                 </div>
               </div>
               
@@ -205,16 +209,15 @@ export default function About() {
             
             <div className="h-[400px] bg-card rounded-lg overflow-hidden shadow-sm border relative">
               {/* Embed an iframe with a map here */}
-              <iframe
-                title="BrushStroke Studio Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178861.89093810812!2d-122.70704942316104!3d45.51201982762795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950b0b7da97427%3A0x1c36b9e6f6d18591!2sPortland%2C%20OR%2C%20USA!5e0!3m2!1sen!2suk!4v1649265932425!5m2!1sen!2suk"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31797.66113598129!2d8.339236100939953!3d4.988158137188482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1saptech!5e0!3m2!1sen!2sng!4v1750252997302!5m2!1sen!2sng" 
+                width="100%" 
+                height="100%" 
+                style={{border:0}}
+                allowfullscreen
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
             </div>
           </div>
         </div>

@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CalligraphyCanvas } from "@/components/CalligraphyCanvas";
 import { ArrowRight, ShoppingBag, Brush, Award } from "lucide-react";
+import bambooBrush from '../assets/bamboobrush.jpeg';
+import heroImage from '../assets/heroimage.jpeg';
+import heroArt from '../assets/heroart.jpg';
+import callipaper from '../assets/callipaper.jpeg';
+import inkSet from '../assets/inkset.jpg';
 
 export default function Home() {
   // Featured products to showcase on homepage
@@ -11,19 +16,19 @@ export default function Home() {
       id: "1",
       name: "Classic Bamboo Brush",
       price: 24.99,
-      image: "/images/brush1.jpg",
+      image: bambooBrush,
     },
     {
       id: "2",
       name: "Premium Ink Set",
       price: 39.99,
-      image: "/images/ink-set.jpg",
+      image: inkSet,
     },
     {
       id: "3",
       name: "Japanese Calligraphy Paper",
       price: 19.99,
-      image: "/images/paper.jpg",
+      image: callipaper,
     },
   ];
 
@@ -85,7 +90,7 @@ export default function Home() {
                 alt="Calligraphy art"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
                 height="550"
-                src="/images/hero.jpg"
+                src={heroArt}
                 width="550"
               />
             </div>

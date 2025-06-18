@@ -13,6 +13,17 @@ import {
 } from "@/components/ui/select";
 import { ShoppingCart, Search } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import bambooBrush from '../assets/bamboobrush.jpeg';
+import inkSet from '../assets/inkset.jpg';
+import calliPaper from '../assets/callipaper.jpeg';
+import penHolder from '../assets/penholder.jpeg';
+import penSet from '../assets/penset.jpeg';
+import redInk from '../assets/redink.jpeg';
+import woodenBox from '../assets/woodenbox.jpeg';
+import paintBrush from '../assets/paintbrush.jpeg';
+import learnGuide from '../assets/learnguide.jpeg';
+import brushSet from '../assets/brushpenset.jpeg';
+
 
 // Define product type
 type Product = {
@@ -32,7 +43,7 @@ const PRODUCTS: Product[] = [
     id: "1",
     name: "Classic Bamboo Brush",
     price: 24.99,
-    image: "/images/brush1.jpg",
+    image: bambooBrush,
     category: "Brushes",
     description: "Traditional bamboo calligraphy brush with horsehair bristles for precise strokes.",
     featured: true,
@@ -41,7 +52,7 @@ const PRODUCTS: Product[] = [
     id: "2",
     name: "Premium Ink Set",
     price: 39.99,
-    image: "/images/ink-set.jpg",
+    image: inkSet,
     category: "Inks",
     description: "Set of 5 premium calligraphy inks in rich, vibrant colors that flow smoothly.",
     featured: true,
@@ -51,7 +62,7 @@ const PRODUCTS: Product[] = [
     id: "3",
     name: "Japanese Calligraphy Paper",
     price: 19.99,
-    image: "/images/paper.jpg",
+    image: calliPaper,
     category: "Paper",
     description: "High-quality absorbent paper specifically designed for calligraphy practice.",
     featured: true,
@@ -60,7 +71,7 @@ const PRODUCTS: Product[] = [
     id: "4",
     name: "Wooden Pen Holder",
     price: 15.99,
-    image: "/images/holder.jpg",
+    image: penHolder,
     category: "Tools",
     description: "Elegant wooden pen holder with brass detailing for storing your calligraphy tools.",
   },
@@ -68,7 +79,7 @@ const PRODUCTS: Product[] = [
     id: "5",
     name: "Modern Calligraphy Pen Set",
     price: 34.99,
-    image: "/images/pen-set.jpg",
+    image: penSet,
     category: "Pens",
     description: "Contemporary calligraphy pen set with multiple interchangeable nibs.",
     bestseller: true,
@@ -77,7 +88,7 @@ const PRODUCTS: Product[] = [
     id: "6",
     name: "Calligraphy Learning Guide",
     price: 29.99,
-    image: "/images/guide.jpg",
+    image: learnGuide,
     category: "Books",
     description: "Comprehensive step-by-step guide to mastering both traditional and modern calligraphy styles.",
   },
@@ -85,7 +96,7 @@ const PRODUCTS: Product[] = [
     id: "7",
     name: "Artisanal Red Ink",
     price: 12.99,
-    image: "/images/red-ink.jpg",
+    image: redInk,
     category: "Inks",
     description: "Rich vermillion ink made using traditional methods for vibrant red calligraphy.",
   },
@@ -93,7 +104,7 @@ const PRODUCTS: Product[] = [
     id: "8",
     name: "Handcrafted Wooden Box",
     price: 49.99,
-    image: "/images/box.jpg",
+    image: woodenBox,
     category: "Tools",
     description: "Beautifully crafted wooden box for storing your precious calligraphy supplies safely.",
   },
@@ -101,7 +112,7 @@ const PRODUCTS: Product[] = [
     id: "9",
     name: "Fine-Tip Brush Pen Set",
     price: 22.99,
-    image: "/images/brush-pen.jpg",
+    image: brushSet,
     category: "Pens",
     description: "Set of 6 brush pens with fine tips for delicate calligraphy work and illustrations.",
     bestseller: true,

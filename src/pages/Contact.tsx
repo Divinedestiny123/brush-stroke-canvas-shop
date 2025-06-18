@@ -97,8 +97,8 @@ export default function Contact() {
                     <h3 className="font-semibold text-lg">Our Location</h3>
                     <p className="text-muted-foreground">
                       BrushStroke Studio<br />
-                      123 Artisan Way<br />
-                      Portland, OR 97204
+                      21 Murtala Mohammed Highway<br />
+                      calabar.
                     </p>
                   </div>
                 </div>
@@ -120,7 +120,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Call Us</h3>
-                    <p className="text-muted-foreground">(503) 555-1234</p>
+                    <p className="text-muted-foreground">+234 814 513 6317</p>
                     <p className="text-muted-foreground">Mon-Fri, 9am-5pm PT</p>
                   </div>
                 </div>
@@ -140,15 +140,14 @@ export default function Contact() {
               
               {/* Map */}
               <div className="h-[300px] bg-card rounded-lg overflow-hidden shadow-sm border relative mt-8">
-                <iframe
-                  title="BrushStroke Studio Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178861.89093810812!2d-122.70704942316104!3d45.51201982762795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950b0b7da97427%3A0x1c36b9e6f6d18591!2sPortland%2C%20OR%2C%20USA!5e0!3m2!1sen!2suk!4v1649265932425!5m2!1sen!2suk"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31797.66113598129!2d8.339236100939953!3d4.988158137188482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1saptech!5e0!3m2!1sen!2sng!4v1750252997302!5m2!1sen!2sng" 
+                width="100%" 
+                height="100%" 
+                style={{border:0}}
+                allowfullscreen
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
             </div>
